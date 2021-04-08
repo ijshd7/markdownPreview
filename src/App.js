@@ -6,7 +6,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdown: "# Isaiah's Markdown Previewer",
+      markdown: "# Isaiah's Markdown Previewer\n## h2\n[link](https://isaiahsherrill.com)\n<h3>Code Block</h3>",
     };
   }
 
@@ -59,6 +59,7 @@ export default class App extends React.Component {
               <div className="input" style={inputStyle}>
                 <textarea
                   className="input"
+                  id="editor"
                   style={inputStyle}
                   value={this.state.markdown}
                   onChange={(e) => {
@@ -80,6 +81,7 @@ export default class App extends React.Component {
               </div>
               <div
                 style={outputStyle}
+                id="preview"
                 dangerouslySetInnerHTML={{
                   __html: marked(this.state.markdown),
                 }}
